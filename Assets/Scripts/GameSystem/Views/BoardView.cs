@@ -16,7 +16,7 @@ namespace GameSystem.Views
             Card = card;
         }
     }
-    class BoardView
+    public class BoardView : MonoBehaviour
     {
         public event EventHandler<PositionEventArgs> PositionDrop;
         public event EventHandler<PositionEventArgs> HoverEnter;
@@ -45,6 +45,31 @@ namespace GameSystem.Views
                     if (_tileViewsCached.ContainsKey(position))
                         _tileViewsCached[position].Activate();
             }            
+        }
+        void Start()
+        {
+            foreach (var positionView in GetComponentsInChildren<TileView>())
+                _tileViewsCached.Add(positionView.GridPosition, positionView);
+        }
+        internal void OnPositionViewDrop(TileView positionView) =>        
+           OnPositionDrop(new PositionEventArgs(positionView.GridPosition, DroppedCard));
+        
+        protected virtual void OnPositionDrop(PositionEventArgs eventArgs)
+        {
+            var handler = PositionDrop;
+            handler?.Invoke(this, eventArgs);
+        }
+        internal void OnTileViewEnter(TileView positionView) => OnTileViewEnter(new PositionEventArgs(positionView.GridPosition, DroppedCard));
+        protected virtual void OnTileEnter(PositionEventArgs enter)
+        {
+            var handler = HoverEnter;
+            handler?.Invoke(this, enter);
+        }
+        internal void OnTileViewExit(TileView positionView) => OnTileViewExit(new PositionEventArgs(positionView.GridPosition, DroppedCard));
+        protected virtual void OnTileExit(PositionEventArgs enter)
+        {
+            var handler = HoverExit;
+            handler?.Invoke(this, enter);
         }
     }
 }

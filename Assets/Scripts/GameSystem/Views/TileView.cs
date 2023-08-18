@@ -16,6 +16,7 @@ namespace GameSystem.Views
         {
             _boardView = FindObjectOfType<BoardView>();
         }
+        
         public void OnPointerEnter(PointerEventData eventData)
         {
             if (eventData.pointerDrag == null)
@@ -26,7 +27,7 @@ namespace GameSystem.Views
         public void OnPointerExit(PointerEventData eventData)
         {
             if (eventData.pointerDrag == null) return;
-            _boardView.TileViewExit(this);
+            _boardView.OnTileViewExit(this);
         }
         private void Awake()
         {

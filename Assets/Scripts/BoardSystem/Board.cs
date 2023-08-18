@@ -37,7 +37,7 @@ namespace BoardSystem
             PlacedPosition = position;
         }
     }
-    class Board
+    public class Board
     {
         public event EventHandler<PieceMovedEventArgs> Moved;
         public event EventHandler<PieceTakenEventArgs> Taken;

@@ -22,20 +22,20 @@ namespace GameSystem.GameState
             _boardView.HoverEnter += TileHoverEnter;
             _boardView.HoverExit += TileHoverExit;
 
-            _engine = new Engine(_board);
+            _engine = new(_board);
 
-            var pieceViews = GameObject.FindObjectsByType<PieceView>();
-            foreach (PieceView p in PieceView)
+            var pieceViews = GameObject.FindObjectsOfType<PieceView>();
+            foreach (PieceView p in pieceViews)
             {
-                if (p.Player == PlayerPrefs.Player)
+                if (p.Player == Player.Player)
                     _playerPiece = p;
 
                 _board.Place(p.GridPosition, p);
             }
 
             _board.Moved += (s, e) => e.PieceView.MoveTo(e.ToPosition);
-            _board.Taken += (s, e) => e.PieceView.Taken;
-            _board.Placed += (s, e) => e.PieceView.Place(e.PlacePosition);
+            _board.Taken += (s, e) => e.PieceView.Take();
+            _board.Placed += (s, e) => e.PieceView.Place(e.PlacedPosition);
 
             _deck = GameObject.FindObjectOfType<DeckView>();
         }

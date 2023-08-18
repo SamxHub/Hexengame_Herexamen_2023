@@ -59,13 +59,13 @@ namespace GameSystem.Views
             var handler = PositionDrop;
             handler?.Invoke(this, eventArgs);
         }
-        internal void OnTileViewEnter(TileView positionView) => OnTileViewEnter(new PositionEventArgs(positionView.GridPosition, DroppedCard));
+        internal void OnTileViewEnter(TileView positionView) => OnTileEnter(new PositionEventArgs(positionView.GridPosition, DroppedCard));
         protected virtual void OnTileEnter(PositionEventArgs enter)
         {
             var handler = HoverEnter;
             handler?.Invoke(this, enter);
         }
-        internal void OnTileViewExit(TileView positionView) => OnTileViewExit(new PositionEventArgs(positionView.GridPosition, DroppedCard));
+        internal void OnTileViewExit(TileView positionView) => OnTileExit(new PositionEventArgs(positionView.GridPosition, DroppedCard));
         protected virtual void OnTileExit(PositionEventArgs enter)
         {
             var handler = HoverExit;

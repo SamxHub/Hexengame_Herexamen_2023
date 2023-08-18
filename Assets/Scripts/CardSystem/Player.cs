@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assets.Scripts.CardSystem
+namespace CardSystem
 {
-    class Player
+    public enum Player
     {
+        Player,
+        Enemy
     }
 }

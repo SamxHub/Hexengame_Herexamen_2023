@@ -8,7 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{012228D2-695F-0FF2-17B3-0A4513DF5727}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -56,31 +57,12 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\GameSystem\Views\CardView.cs" />
-    <Compile Include="Assets\Scripts\CardSystem\Player.cs" />
-    <Compile Include="Assets\Scripts\GameSystem\Views\DeckView.cs" />
-    <Compile Include="Assets\Scripts\BoardSystem\Board.cs" />
-    <Compile Include="Assets\Scripts\GameSystem\Helpers\PositionHelper.cs" />
-    <Compile Include="Assets\Scripts\GameSystem\Views\BoardView.cs" />
-    <Compile Include="Assets\Scripts\CardSystem\MoveSetHelper.cs" />
-    <Compile Include="Assets\Scripts\CardSystem\CardType.cs" />
-    <Compile Include="Assets\Scripts\GameSystem\Views\PieceView.cs" />
-    <Compile Include="Assets\Scripts\CardSystem\IPiece.cs" />
-    <Compile Include="Assets\Scripts\CardSystem\Cards\TeleportCard.cs" />
     <Compile Include="Assets\Scripts\GameSystem\GameLoop.cs" />
-    <Compile Include="Assets\Scripts\CardSystem\MoveSet.cs" />
-    <Compile Include="Assets\Scripts\CardSystem\Cards\LaserCard.cs" />
-    <Compile Include="Assets\Scripts\CardSystem\Engine.cs" />
-    <Compile Include="Assets\Scripts\BoardSystem\Position.cs" />
-    <Compile Include="Assets\Scripts\CardSystem\Cards\PushCard.cs" />
-    <Compile Include="Assets\Scripts\CardSystem\Cards\SwingCard.cs" />
-    <Compile Include="Assets\Scripts\GameSystem\Views\StartView.cs" />
-    <Compile Include="Assets\Scripts\GameSystem\GameStates\PlayState.cs" />
-    <Compile Include="Assets\Scripts\CardSystem\Cards\MeteorCard.cs" />
-    <Compile Include="Assets\Scripts\GameSystem\GameStates\State.cs" />
-    <Compile Include="Assets\Scripts\GameSystem\GameStates\StateMachine.cs" />
-    <Compile Include="Assets\Scripts\GameSystem\Views\TileView.cs" />
-    <Compile Include="Assets\Scripts\GameSystem\GameStates\StartState.cs" />
+    <Compile Include="Assets\Scripts\GameSystem\GameState\EndState.cs" />
+    <Compile Include="Assets\Scripts\GameSystem\GameState\PlayState.cs" />
+    <Compile Include="Assets\Scripts\GameSystem\GameState\StartState.cs" />
+    <Compile Include="Assets\Scripts\GameSystem\GameState\State.cs" />
+    <Compile Include="Assets\Scripts\GameSystem\GameState\StateMachine.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

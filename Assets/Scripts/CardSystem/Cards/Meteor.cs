@@ -1,12 +1,9 @@
-﻿using System;
+﻿using BoardSystem;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Assets.Scripts.CardSystem.Cards
+namespace CardSystem.Cards
 {
-    class Meteor
+    public class MeteorCard : MoveSet
     {
     }
 }

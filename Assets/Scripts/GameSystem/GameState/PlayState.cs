@@ -14,11 +14,11 @@ namespace GameSystem.GameState
         private BoardView _boardView;
         private DeckView _deck;
         public void InitializeScene(UnityEngine.AsyncOperation obj)
-        {            
+        {
         }
         public override void OnEnter()
         {
-            base.OnEnter();
+           
         }
         public override void OnExit()
         {

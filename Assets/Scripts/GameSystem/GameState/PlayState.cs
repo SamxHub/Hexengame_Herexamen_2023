@@ -77,7 +77,7 @@ namespace GameSystem.GameState
             var card = eventArgs.Card;
 
             if (_engine.DoAction(_playerPiece.GridPosition, positionHover))
-                _deck.DeactivateCrd(card);
+                _deck.DeactivateCard(card);
 
             _boardView.ActivatedPositions = null;
         }
@@ -86,7 +86,7 @@ namespace GameSystem.GameState
             var positionHover = eventArgs.Position;
             var Card = eventArgs.Card;
 
-            var tiles = _engine.ValidPosition(Card, _playerPiece.GridPosition, positionHover);
+            MoveSet tiles = _engine.ValidPosition(Card, _playerPiece.GridPosition, positionHover);
 
             if (tiles == null)
                 return;

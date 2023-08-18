@@ -8,5 +8,10 @@ namespace CardSystem
 {
     public enum CardType
     {
+        Teleport,
+        Line,
+        Swing,
+        Push,
+        Meteor
     }
 }

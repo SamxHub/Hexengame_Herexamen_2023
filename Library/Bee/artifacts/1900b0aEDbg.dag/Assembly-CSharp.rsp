@@ -343,7 +343,13 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.UI.ref.dll"
+"Assets/Scripts/CardSystem/Engine.cs"
 "Assets/Scripts/GameSystem/GameLoop.cs"
+"Assets/Scripts/GameSystem/GameState/EndState.cs"
+"Assets/Scripts/GameSystem/GameState/PlayState.cs"
+"Assets/Scripts/GameSystem/GameState/StartState.cs"
+"Assets/Scripts/GameSystem/GameState/State.cs"
+"Assets/Scripts/GameSystem/GameState/StateMachine.cs"
 -langversion:9.0
 
 /deterministic

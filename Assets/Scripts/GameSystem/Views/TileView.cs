@@ -11,7 +11,7 @@ namespace GameSystem.Views
         [SerializeField] private UnityEvent OnActivate;
         [SerializeField] private UnityEvent OnDeactivate;
 
-        public Position GridPosition => PositionHelper.GridPositition(transform.position);
+        public Position GridPosition => PositionHelper.GridPosition(transform.position);
         private void Start()
         {
             _boardView = FindObjectOfType<BoardView>();

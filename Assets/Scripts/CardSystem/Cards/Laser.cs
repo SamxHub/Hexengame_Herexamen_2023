@@ -6,7 +6,7 @@ namespace CardSystem.Cards
 {
     class LaserCard : MoveSet
     {
-        public LaserCard(Board board, Position position, Position playerPos) : base(Board, hoverPos, playerPos)
+        public LaserCard(Board board, Position position, Position playerPos) : base(board, position, playerPos)
         {
             GetValidPositions(PlayerPosition);
             GetActionPositions(HoverPosition);

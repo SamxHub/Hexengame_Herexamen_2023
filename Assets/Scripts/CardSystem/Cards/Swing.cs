@@ -5,7 +5,7 @@ namespace CardSystem.Cards
 {
     class SwingCard : MoveSet
     {
-        public SwingCard(Board board, Position position, Position playerPosition) : base(board, hoverPos, playerPos)
+        public SwingCard(Board board, Position position, Position playerPosition) : base(board, position, playerPosition)
         {
             GetValidPositions(PlayerPosition);
             GetActionPositions(HoverPosition);

@@ -35,7 +35,7 @@ namespace CardSystem
             if (card.Type == CardType.Meteor) 
                 _moveSet = new MeteorCard(_board, hovPos, playerPos);
         }
-        public void GetActionPositions(Position position) => _moveSet.GetActionPositions(horPos);
+        public void GetActionPositions(Position position) => _moveSet.GetActionPositions(position);
         internal MoveSet ValidPosition(CardView card, Position gridPosition, Position horPos)
         {
             GetValidPositions(card, horPos, gridPosition);

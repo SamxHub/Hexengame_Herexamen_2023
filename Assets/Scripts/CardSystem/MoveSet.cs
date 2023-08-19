@@ -56,7 +56,7 @@ namespace CardSystem
                 }
             return true;
         }
-        public Vector2Int Normalixe(Vector2Int direction)
+        public Vector2Int Normalize(Vector2Int direction)
         {
             if (direction.x > 1) direction = new Vector2Int(1, direction.y);
             

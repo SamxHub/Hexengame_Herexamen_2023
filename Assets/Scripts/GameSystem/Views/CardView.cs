@@ -10,6 +10,7 @@ namespace GameSystem.Views
         private BoardView _boardView;
 
         private GameObject _copy;
+        public CardType Type;
         private void Awake()
         {
             _canvasGroup = gameObject.GetComponent<CanvasGroup>();

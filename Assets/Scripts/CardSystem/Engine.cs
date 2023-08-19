@@ -20,19 +20,19 @@ namespace CardSystem
         {
             if (card == null) return;
            
-            if(card.GetType == CardType.Teleport)  
+            if(card.Type == CardType.Teleport)  
                 _moveSet = new TeleportCard(_board, hovPos, playerPos);
             
-            if (card.GetType == CardType.Line) 
+            if (card.Type == CardType.Line) 
                 _moveSet = new LaserCard(_board, hovPos, playerPos);
            
-            if (card.GetType == CardType.Swing) 
+            if (card.Type == CardType.Swing) 
                 _moveSet = new SwingCard(_board, hovPos, playerPos);
           
-            if (card.GetType == CardType.Push) 
+            if (card.Type == CardType.Push) 
                 _moveSet = new PushCard(_board, hovPos, playerPos);
            
-            if (card.GetType == CardType.Meteor) 
+            if (card.Type == CardType.Meteor) 
                 _moveSet = new MeteorCard(_board, hovPos, playerPos);
         }
         public void GetActionPositions(Position position) => _moveSet.GetActionPositions(horPos);

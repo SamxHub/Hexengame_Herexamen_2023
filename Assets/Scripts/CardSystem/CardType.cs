@@ -12,6 +12,7 @@ namespace CardSystem
         Line,
         Swing,
         Push,
-        Meteor
+        Meteor,
+        Blitz
     }
 }

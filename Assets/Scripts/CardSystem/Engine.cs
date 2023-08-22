@@ -2,6 +2,7 @@
 using GameSystem.Views;
 using CardSystem.Cards;
 using System.Collections.Generic;
+using System;
 
 namespace CardSystem
 { 
@@ -37,6 +38,10 @@ namespace CardSystem
                 else if (card.Type == CardType.Meteor)
                 {
                     _moveSet = new MeteorCard(_board, hovPos, playerPos);
+                }
+                else if(card.Type == CardType.Blitz)
+                {
+                    _moveSet = new Blitz(_board, hovPos, playerPos);
                 }
             }
         }

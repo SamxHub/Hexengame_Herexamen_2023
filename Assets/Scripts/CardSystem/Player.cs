@@ -1,14 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CardSystem
+﻿namespace CardSystem
 {
     public enum Player
     {
         Player,
         Enemy
     }
+    //public class StateMachinePlayer
+    //{
+    //    private Player player = new();
+    //    private Enemy enemy = new();
+    //    public void ChangePlayer(Player player)
+    //    {
+    //        if (player == Player.Player)
+    //            return;
+    //        else
+    //            enemy.ChangePosition();
+    //    }
+    //}
 }

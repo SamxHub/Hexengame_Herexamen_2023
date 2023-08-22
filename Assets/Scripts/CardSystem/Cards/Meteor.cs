@@ -28,7 +28,6 @@ namespace CardSystem.Cards
                     );
             }
         }
-
         public override void GetValidPositions(Position position)
             => ValidPositions.AddRange(new MoveSetHelper(PlayerPosition, Board)
                 .Everything()

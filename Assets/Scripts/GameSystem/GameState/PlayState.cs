@@ -13,6 +13,8 @@ namespace GameSystem.GameState
         private PieceView _playerPiece;
         private BoardView _boardView;
         private DeckView _deck;
+        //private StateMachinePlayer _stateMachine = new();
+
         public void InitializeScene(UnityEngine.AsyncOperation obj)
         {
             _boardView = GameObject.FindObjectOfType<BoardView>();
@@ -80,6 +82,8 @@ namespace GameSystem.GameState
                 _deck.DeactivateCard(card);
 
             _boardView.ActivatedPositions = null;
+
+            //_stateMachine.ChangePlayer(Player.Enemy);
         }
         private void TileHoverEnter(object sender, PositionEventArgs eventArgs)
         {

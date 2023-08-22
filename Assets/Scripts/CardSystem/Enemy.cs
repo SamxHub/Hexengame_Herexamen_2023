@@ -1,59 +1,83 @@
-﻿//using BoardSystem;
-//using System;
-//using UnityEngine;
+﻿using BoardSystem;
+using System.Collections.Generic;
+using UnityEngine;
 
-//namespace CardSystem
-//{
-//    class Enemy
-//    {
-//        private StateMachinePlayer player = new();
-//        public Board Board { get; set; }
-//        private GameObject[] _pieces;
-//        private GameObject[] _enemies;
-//        private GameObject[] _boardPieces;
+namespace CardSystem
+{
+    class Enemy
+    {
+        private StateMachinePlayer player;
 
-//        public void ChangePosition()
-//        {
-//            Move();
-//            player.ChangePlayer(Player.Player);
-//        }
+        public Board Board { get; set; }
+        private GameObject[] _pieces;
+        private GameObject[] _enemies;
+        private GameObject[] _boardPieces;
 
-//        private void Move()
-//        {
-//            //find every enemy
-//            _enemies = FindGameObjectsWithLayer("Player", "Enemies");
-//            //change all positions
-//            PositionChange(_enemies);
-            
-//        }
+        public void ChangePosition()
+        {
+            Move();
+        }
 
-//        private void PositionChange(GameObject[] enemies)
-//        {
-//            /// find the coordinates of all hexagons
-//            _boardPieces = FindGameObjectsWithLayer("Untagged", "")
-//            /// place the pieces on the board
-//            /// make sure the place isn't already occupied
-//            /// Check if the position is on the board.
-//        }
+        private void Move()
+        {
+            //find every enemy
+            _enemies = FindGameObjectsWithLayer("Piece", "Enemies");
+            // Find the coordinates of all hexagons
 
-//            public GameObject[] FindGameObjectsWithLayer(string tag, string layer)
-//        {
-//            //Find all Gameobjects with tag Player
-//            _pieces = GameObject.FindGameObjectsWithTag(tag);
+            _boardPieces = FindGameObjectsWithLayer("Board", "Tile");
 
-//            // Find in those gameobjects the "players" with the layer enemies
-//            int index = 0;
-//            GameObject[] layerPieces = new GameObject[int.MaxValue];
+            //change all positions
+            PositionChange(_enemies);
 
-//            foreach (GameObject go in _pieces)
-//                if (go.layer.ToString() == layer)
-//                {
-//                    layerPieces[index] = go;
-//                    index++;
-//                }
-//            // return those
-//            return layerPieces;
-//        }
-//    }
-//}
+        }
+        private void PositionChange(GameObject[] enemies)
+        {
+            // Check if there are enough board pieces to move all enemies
+            if (_boardPieces.Length < enemies.Length)
+            {
+                Debug.LogWarning("Not enough board pieces for all enemies.");
+                return;
+            }
+
+            // Create a list of available board piece indices
+            List<int> availableIndices = new List<int>();
+            for (int i = 0; i < _boardPieces.Length; i++)
+            {
+                availableIndices.Add(i);
+            }
+
+            // Iterate through each enemy and assign a random hexagon position
+            foreach (GameObject enemy in enemies)
+            {
+                // Check if there are any available positions left
+                if (availableIndices.Count == 0)
+                {
+                    Debug.LogWarning("No available board pieces for enemy movement.");
+                    break;
+                }
+
+                // Choose a random index from the available positions
+                int randomIndex = Random.Range(0, availableIndices.Count);
+                int chosenIndex = availableIndices[randomIndex];
+
+                // Assign the position and remove the chosen index from available positions
+                Transform hex = _boardPieces[chosenIndex].transform;
+                enemy.transform.position = hex.position;
+            }
+        }
+
+        // Function to find game objects with a specific tag and layer
+        private GameObject[] FindGameObjectsWithLayer(string tag, string layer)
+        {
+            GameObject[] taggedGameObjects = GameObject.FindGameObjectsWithTag(tag);
+            List<GameObject> result = new();
+
+            foreach (GameObject go in taggedGameObjects)
+                if (go.layer == LayerMask.NameToLayer(layer))
+                    result.Add(go);
+
+            return result.ToArray();
+        }
+    }
+}
 

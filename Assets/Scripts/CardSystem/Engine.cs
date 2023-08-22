@@ -10,10 +10,13 @@ namespace CardSystem
     {
         private Board _board;
         private MoveSet _moveSet;
+        private Enemy enemy;
 
         public Engine(Board board)
         {
-            _board = board;
+            _board = board; 
+            enemy = new();
+
         }
         private void GetValidPositions(CardView card, Position hovPos, Position playerPos)
         {
@@ -56,6 +59,7 @@ namespace CardSystem
             if (!_moveSet.Execute(playerPos, hovPos))
                 return false;
 
+            enemy.ChangePosition();
             return true;
         }
     }

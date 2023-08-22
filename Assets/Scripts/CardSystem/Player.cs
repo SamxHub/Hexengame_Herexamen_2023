@@ -5,16 +5,19 @@
         Player,
         Enemy
     }
-    //public class StateMachinePlayer
-    //{
-    //    private Player player = new();
-    //    private Enemy enemy = new();
-    //    public void ChangePlayer(Player player)
-    //    {
-    //        if (player == Player.Player)
-    //            return;
-    //        else
-    //            enemy.ChangePosition();
-    //    }
-    //}
+    public class StateMachinePlayer
+    {
+        private Player currentPlayer = new();
+        private Enemy enemy = new();
+        public void ChangePlayer(Player newPlayer)
+        {
+            if (newPlayer == currentPlayer)
+                return;
+
+            currentPlayer = newPlayer;
+
+            if (currentPlayer == Player.Enemy)
+                enemy.ChangePosition();
+        }
+    }
 }

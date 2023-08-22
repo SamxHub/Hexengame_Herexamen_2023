@@ -8,7 +8,8 @@ namespace CardSystem
     public abstract class MoveSet
     {
         public List<Position> ValidPositions { get; set; }
-        public List<Position> ActionPositions { get; set;  }
+        public List<Position> ActionPositions { get; set; }
+
 
         public Board Board { get; set; }
         public Position HoverPosition { get; set; }
@@ -36,11 +37,11 @@ namespace CardSystem
             List<PieceView> takenPieces = new();
             List<Position> positionTakenPieces = new();
 
-            foreach(Position pos in ActionPositions)
+            foreach (Position pos in ActionPositions)
             {
-                if(Board.Pieces.TryGetValue(pos, out PieceView piece))
+                if (Board.Pieces.TryGetValue(pos, out PieceView piece))
                 {
-                    if(piece.Player == Player.Enemy)
+                    if (piece.Player == Player.Enemy)
                     {
                         takenPieces.Add(piece);
                         positionTakenPieces.Add(pos);
@@ -48,25 +49,27 @@ namespace CardSystem
                     }
                 }
             }
-            if(hasPieceBeenTaken)
-                foreach(PieceView pieceView in takenPieces)
+            if (hasPieceBeenTaken)
+            {
+                foreach (PieceView pieceView in takenPieces)
                 {
                     int indexPos = takenPieces.IndexOf(pieceView);
                     Board.Take(positionTakenPieces[indexPos]);
                 }
+            }
             return true;
         }
         public Vector2Int Normalize(Vector2Int direction)
         {
             if (direction.x > 1) direction = new Vector2Int(1, direction.y);
-            
+
             if (direction.x < -1) direction = new Vector2Int(-1, direction.y);
-            
+
             if (direction.x < -1) direction = new Vector2Int(direction.x, -1);
-            
+
             if (direction.x > 1) direction = new Vector2Int(direction.x, 1);
 
-            
+
             return direction;
         }
     }

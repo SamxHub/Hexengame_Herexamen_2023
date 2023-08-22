@@ -708,8 +708,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7893863826726332217, guid: ec7ac153af7260d4da398f5961e5e2e2, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8015827332807206268, guid: ec7ac153af7260d4da398f5961e5e2e2, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8222620248761662710, guid: ec7ac153af7260d4da398f5961e5e2e2, type: 3}
       propertyPath: m_Name
+      value: Board
+      objectReference: {fileID: 0}
+    - target: {fileID: 8222620248761662710, guid: ec7ac153af7260d4da398f5961e5e2e2, type: 3}
+      propertyPath: m_TagString
       value: Board
       objectReference: {fileID: 0}
     - target: {fileID: 8222620248761662711, guid: ec7ac153af7260d4da398f5961e5e2e2, type: 3}

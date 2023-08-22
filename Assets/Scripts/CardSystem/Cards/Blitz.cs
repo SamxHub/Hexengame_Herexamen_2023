@@ -62,7 +62,7 @@ namespace CardSystem.Cards
                 }
             }
             if (hasPieceBeenTaken)
-                Board.Take(positionTakenPieces[1]);
+                Board.Take(positionTakenPieces[0]);
             return true;
         }
     }

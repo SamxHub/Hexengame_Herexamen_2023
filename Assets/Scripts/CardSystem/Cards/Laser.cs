@@ -30,7 +30,7 @@ namespace CardSystem.Cards
         public override void GetActionPositions(Position position)
         {
             ActionPositions.Clear();
-            MoveSetHelper moveSetAction = new MoveSetHelper(PlayerPosition, Board);
+            MoveSetHelper moveSetAction = new (PlayerPosition, Board);
 
             Vector2Int dir = new((HoverPosition.Q - PlayerPosition.Q), (HoverPosition.R - PlayerPosition.R));
 

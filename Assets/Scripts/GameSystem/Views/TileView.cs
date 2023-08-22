@@ -16,25 +16,27 @@ namespace GameSystem.Views
         {
             _boardView = FindObjectOfType<BoardView>();
         }
-        
+
         public void OnPointerEnter(PointerEventData eventData)
         {
-            if (eventData.pointerDrag == null)
-                return;
-            _boardView.OnTileViewEnter(this);
+            if (eventData.pointerDrag != null)
+                _boardView.OnTileViewEnter(this);
         }
-        public void OnDrop(PointerEventData eventData) => _boardView.OnPositionViewDrop(this);
+        public void OnDrop(PointerEventData eventData)
+            => _boardView.OnPositionViewDrop(this);
         public void OnPointerExit(PointerEventData eventData)
         {
-            if (eventData.pointerDrag == null) return;
-            _boardView.OnTileViewExit(this);
+            if (eventData.pointerDrag != null)
+                _boardView.OnTileViewExit(this);
         }
         private void Awake()
         {
             var pos = PositionHelper.GridPosition(transform.position);
             transform.position = PositionHelper.WorldPosition(pos);
         }
-        internal void Deactivate() => OnDeactivate?.Invoke();
-        internal void Activate() => OnActivate?.Invoke();
+        internal void Deactivate()
+            => OnDeactivate?.Invoke();
+        internal void Activate()
+            => OnActivate?.Invoke();
     }
 }

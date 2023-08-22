@@ -88,16 +88,16 @@ namespace GameSystem.GameState
 
             MoveSet tiles = _engine.ValidPosition(Card, _playerPiece.GridPosition, positionHover);
 
-            if (tiles == null)
-                return;
-
-            if (tiles.ValidPositions.Contains(positionHover))
+            if (tiles != null)
             {
-                _engine.GetActionPositions(positionHover);
-                _boardView.ActivatedPositions = tiles.ActionPositions;
+                 if (tiles.ValidPositions.Contains(positionHover))
+                 {
+                     _engine.GetActionPositions(positionHover);
+                     _boardView.ActivatedPositions = tiles.ActionPositions;
+                 }
+                 else
+                     _boardView.ActivatedPositions = tiles.ValidPositions;
             }
-            else
-                _boardView.ActivatedPositions = tiles.ValidPositions;
         }
         private void TileHoverExit(object sender, PositionEventArgs eventArgs) =>
            _boardView.ActivatedPositions = null;

@@ -1,6 +1,5 @@
 ﻿using BoardSystem;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,17 +24,18 @@ namespace GameSystem.Views
         public CardView DroppedCard;
 
         private Dictionary<Position, TileView> _tileViewsCached = new();
-        private List<Position> _activatedPositions = new();
+        private List<Position> _activatedPositions = new(0);
 
         public List<Position> ActivatedPositions
         {
             set
             {
-                foreach(var position in _activatedPositions)
+                foreach (var position in _activatedPositions)
                 {
                     if (_tileViewsCached.ContainsKey(position))
                         _tileViewsCached[position].Deactivate();
                 }
+
                 if (value == null)
                     _activatedPositions = new(0);
                 else
@@ -44,28 +44,30 @@ namespace GameSystem.Views
                 foreach (var position in _activatedPositions)
                     if (_tileViewsCached.ContainsKey(position))
                         _tileViewsCached[position].Activate();
-            }            
+            }
         }
         void Start()
         {
             foreach (var positionView in GetComponentsInChildren<TileView>())
                 _tileViewsCached.Add(positionView.GridPosition, positionView);
         }
-        internal void OnPositionViewDrop(TileView positionView) =>        
+        internal void OnPositionViewDrop(TileView positionView) =>
            OnPositionDrop(new PositionEventArgs(positionView.GridPosition, DroppedCard));
-        
+
         protected virtual void OnPositionDrop(PositionEventArgs eventArgs)
         {
             var handler = PositionDrop;
             handler?.Invoke(this, eventArgs);
         }
-        internal void OnTileViewEnter(TileView positionView) => OnTileEnter(new PositionEventArgs(positionView.GridPosition, DroppedCard));
+        internal void OnTileViewEnter(TileView positionView)
+            => OnTileEnter(new PositionEventArgs(positionView.GridPosition, DroppedCard));
         protected virtual void OnTileEnter(PositionEventArgs enter)
         {
             var handler = HoverEnter;
             handler?.Invoke(this, enter);
         }
-        internal void OnTileViewExit(TileView positionView) => OnTileExit(new PositionEventArgs(positionView.GridPosition, DroppedCard));
+        internal void OnTileViewExit(TileView positionView)
+            => OnTileExit(new PositionEventArgs(positionView.GridPosition, DroppedCard));
         protected virtual void OnTileExit(PositionEventArgs enter)
         {
             var handler = HoverExit;

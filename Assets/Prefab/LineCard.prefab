@@ -7,10 +7,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 54521359172458928, guid: da206ac481439384d95395fd8b2e8288, type: 3}
-      propertyPath: Type
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4311742511505435825, guid: da206ac481439384d95395fd8b2e8288, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -101,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 7f51e6da609afa24c9cb7300067578e9, type: 3}
     - target: {fileID: 7541038602788089784, guid: da206ac481439384d95395fd8b2e8288, type: 3}
       propertyPath: m_Name
-      value: LineCard Variant
+      value: LineCard
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da206ac481439384d95395fd8b2e8288, type: 3}

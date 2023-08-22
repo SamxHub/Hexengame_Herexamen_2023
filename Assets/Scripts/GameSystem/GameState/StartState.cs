@@ -17,7 +17,7 @@ namespace GameSystem.GameState
         private void InitializeScene(UnityEngine.AsyncOperation operation)
         {
             _startView = GameObject.FindObjectOfType<StartView>();
-            if (_startView == null) return;
+            if (_startView != null) 
 
             _startView.PlayClicked += OnPlayClicked;
         }
@@ -25,8 +25,7 @@ namespace GameSystem.GameState
             => StateMachine.MoveTo(GameStates.Play);
         public override void OnExit()
         {
-            if (_startView == null)
-                return;
+            if (_startView != null)
             _startView.PlayClicked -= OnPlayClicked;
 
             SceneManager.UnloadSceneAsync("Start");

@@ -7,7 +7,7 @@ namespace GameSystem
     {
         private StateMachine _stateMachine;
 
-        private void Start()
+        void Start()
         {
             _stateMachine = new();
             _stateMachine.Register(GameStates.Play, new PlayState());

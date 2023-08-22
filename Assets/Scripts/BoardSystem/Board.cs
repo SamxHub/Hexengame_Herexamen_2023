@@ -87,7 +87,8 @@ namespace BoardSystem
             OnPlaceObject(new PiecePlacedEventArgs(pieceView, to));
             return true;
         }
-        public bool IsValid(Position position) => position.Distance >= -1 * _radius && position.Distance <= _radius;
+        public bool IsValid(Position position) 
+            => (position.Distance >= -1 * _radius && position.Distance <= _radius);
         protected virtual void OnMoveObject(PieceMovedEventArgs eventArgs)
         {
             var handler = Moved;

@@ -55,9 +55,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4432355621072837364, guid: 3d5cb64050d90ae4781a76fbab8d47e5, type: 3}
+      propertyPath: _player
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5678223646043753957, guid: 3d5cb64050d90ae4781a76fbab8d47e5, type: 3}
       propertyPath: m_Name
-      value: EnemyPiece Variant
+      value: EnemyPiece
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d5cb64050d90ae4781a76fbab8d47e5, type: 3}
